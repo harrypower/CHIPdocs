@@ -53,14 +53,22 @@ and the password is chip at the beginning! You might need to press enter to get 
 [CHIP online wifi setup](http://docs.getchip.com/chip.html#wifi-connection)
 
 Now to set up CHIP to connect to the hotspot or wifi router. In the putty session enter the following to see the wifi router:
-```nmcli device wifi list```
+
+`nmcli device wifi list`
+
 You should see the ssid for your hotspot or router!
-```sudo nmcli device wifi connect '(your wifi network name/SSID)' password '(your wifi password)' ifname wlan0```
+
+`sudo nmcli device wifi connect '(your wifi network name/SSID)' password '(your wifi password)' ifname wlan0`
+
 Test your connection as follows:
-```nmcli device status```
+
+`nmcli device status`
+
 You should see a connection to your wifi ssid on wlan0 now in the list!
 Now issue this command to find the current ip address that the CHIP is connected to (in the inet list):
-```ip addr show dev wlan0```
+
+`ip addr show dev wlan0`
+
 Open another putty session and connect to this ip via ssh.  Note if this does not work it may be due to ssh not configured or installed
 yet.  I have had this issue with early versions of the headless os.  If this is the case the next section will have info on how to install
 ssh and configure it along with other software.
