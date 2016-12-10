@@ -30,6 +30,7 @@ The pop up window should tell you when it is done and if all is ok with flashing
 
 # Configure CHIP for wifi connection to a hotspot or wifi router!
 [CHIP Headless online docs](http://docs.getchip.com/chip.html#headless-chip)
+
 Get the USB to serial cable.  The above link shows a driver page download for this USB to serial cable but that driver does not work
 with older devices of the company that makes the driver so the link for the older driver that will uninstall and fix the driver to allow older devices to work
 is here [older pl2303 windows 10 driver](http://www.totalcardiagnostics.com/support/Knowledgebase/Article/View/92/0/prolific-usb-to-serial-fix-official-solution-to-code-10-error) .
@@ -41,23 +42,25 @@ Note do not use the red power connection from the USB to serial device ( red is 
 * black to CHIP Gnd U14 pin1
 * white (tx) to CHIP uart1-tx U14 pin3
 * green (rx) to CHIP uart1-rx U14 pin5
+
 ![USB to serial connections](uart_connection.jpg)
 ![CHIP pinouts](chip_pinouts.jpg)
 
 Now power the CHIP with a usb power adapter.  Open putty on windows machine and connect to the port number from above step ensuring
-that the speed is setup as 115200 baud.  This should open up a window and connection that will ask for username and password.  
-The username is chip and the password is chip at the beginning! You might need to press enter to get the username prompt to show up!
+that the speed is setup as 115200 baud.  This should open up a window and connection that will ask for username and password. The username is chip
+and the password is chip at the beginning! You might need to press enter to get the username prompt to show up!
 
 [CHIP online wifi setup](http://docs.getchip.com/chip.html#wifi-connection)
+
 Now to set up CHIP to connect to the hotspot or wifi router. In the putty session enter the following to see the wifi router:
-`nmcli device wifi list`
+```nmcli device wifi list```
 You should see the ssid for your hotspot or router!
-`sudo nmcli device wifi connect '(your wifi network name/SSID)' password '(your wifi password)' ifname wlan0`
+```sudo nmcli device wifi connect '(your wifi network name/SSID)' password '(your wifi password)' ifname wlan0```
 Test your connection as follows:
-`nmcli device status`
+```nmcli device status```
 You should see a connection to your wifi ssid on wlan0 now in the list!
 Now issue this command to find the current ip address that the CHIP is connected to (in the inet list):
-`ip addr show dev wlan0`
+```ip addr show dev wlan0```
 Open another putty session and connect to this ip via ssh.  Note if this does not work it may be due to ssh not configured or installed
 yet.  I have had this issue with early versions of the headless os.  If this is the case the next section will have info on how to install
 ssh and configure it along with other software.
