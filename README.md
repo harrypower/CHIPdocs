@@ -1,1 +1,1 @@
-*[Headless chip setup](chip_headless_setup.md)
+* [Headless chip setup](chip_headless_setup.md)
