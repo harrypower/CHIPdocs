@@ -29,7 +29,7 @@ Note there maybe messages from windows about USB device not detected just ignore
 The pop up window should tell you when it is done and if all is ok with flashing!
 
 # Configure CHIP for wifi connection to a hotspot or wifi router!
-[CHIP Headless online docs](http://docs.getchip.com/chip.html#headless-chip)
+[CHIP Headless online documents](http://docs.getchip.com/chip.html#headless-chip)
 
 Get the USB to serial cable.  The above link shows a driver page download for this USB to serial cable but that driver does not work
 with older devices of the company that makes the driver so the link for the older driver that will uninstall and fix the driver to allow older devices to work
@@ -50,7 +50,7 @@ Now power the CHIP with a usb power adapter.  Open putty on windows machine and 
 that the speed is setup as 115200 baud.  This should open up a window and connection that will ask for username and password. The username is chip
 and the password is chip at the beginning! You might need to press enter to get the username prompt to show up!
 
-[CHIP online wifi setup](http://docs.getchip.com/chip.html#wifi-connection)
+[CHIP online wifi setup documents](http://docs.getchip.com/chip.html#wifi-connection)
 
 Now to set up CHIP to connect to the hotspot or wifi router. In the putty session enter the following to see the wifi router:
 
@@ -72,3 +72,5 @@ Now issue this command to find the current ip address that the CHIP is connected
 Open another putty session and connect to this ip via ssh.  Note if this does not work it may be due to ssh not configured or installed
 yet.  I have had this issue with early versions of the headless os.  If this is the case the next section will have info on how to install
 ssh and configure it along with other software.
+
+# Remove and installing software
