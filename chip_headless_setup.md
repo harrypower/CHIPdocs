@@ -13,10 +13,11 @@
 This will setup CHIP for use with software i use for programing in Gforth and c/c++ and a wifi connection to ssh into CHIP headlessly!
 
 # Flashing the CHIP for headless use!
-* [CHIP's online docs for flashing](http://docs.getchip.com/chip.html#flash-chip-with-an-os)
+* [CHIP's online documents for flashing](http://docs.getchip.com/chip.html#flash-chip-with-an-os)
 
 Need to get driver for flashing so open up chrome browser and go to the following page and install the driver!
 * [CHIP chrome flasher](http://flash.getchip.com/)
+
 Place jumper wire connecting Pin 7 and Pin 39 on header U14 (FEL pin and GND). The image shows this!
 ![Fel mode wiring](uboot_fel_jumper.jpg)
 
@@ -57,6 +58,7 @@ Now to set up CHIP to connect to the hotspot or wifi router. In the putty sessio
 `nmcli device wifi list`
 
 You should see the ssid for your hotspot or router!
+Do the following to connect to your hotspot or router.  Note put your SSID and your password in the following where it shows to:
 
 `sudo nmcli device wifi connect '(your wifi network name/SSID)' password '(your wifi password)' ifname wlan0`
 
@@ -70,7 +72,7 @@ Now issue this command to find the current ip address that the CHIP is connected
 `ip addr show dev wlan0`
 
 Open another putty session and connect to this ip via ssh.  Note if this does not work it may be due to ssh not configured or installed
-yet.  I have had this issue with early versions of the headless os.  If this is the case the next section will have info on how to install
+yet on the CHIP.  I have had this issue with early versions of the headless os.  If this is the case the next section will have info on how to install
 ssh and configure it along with other software.
 
-# Remove and installing software
+# Update Remove and Installing software
