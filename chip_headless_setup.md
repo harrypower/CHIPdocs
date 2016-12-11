@@ -82,3 +82,4 @@ yet on the CHIP.  I have had this issue with early versions of the headless os. 
 ssh and configure it along with other software.
 
 # Update Remove and Installing software
+* [Software](my_chip_software.md)
