@@ -10,7 +10,7 @@
 * Putty for windows installed and working
 
 # What will it do!
-This will setup CHIP for use with software i use for programing in Gforth and c/c++ and a wifi connection to ssh into CHIP headlessly!
+This will setup CHIP for use with software i use for programing in Gforth and c/c++ and a wifi connection to ssh into CHIP heedlessly!
 
 # Flashing the CHIP for headless use!
 * [CHIP's online documents for flashing](http://docs.getchip.com/chip.html#flash-chip-with-an-os)
