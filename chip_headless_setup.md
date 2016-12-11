@@ -32,6 +32,7 @@ The pop up window should tell you when it is done and if all is ok with flashing
 # Configure CHIP for wifi connection to a hotspot or wifi router!
 [CHIP Headless online documents](http://docs.getchip.com/chip.html#headless-chip)
 
+### Connect to CHIP via USB to Serial cable
 Get the USB to serial cable.  The above link shows a driver page download for this USB to serial cable but that driver does not work
 with older devices of the company that makes the driver so the link for the older driver that will uninstall and fix the driver to allow older devices to work
 is here [older pl2303 windows 10 driver](http://www.totalcardiagnostics.com/support/Knowledgebase/Article/View/92/0/prolific-usb-to-serial-fix-official-solution-to-code-10-error) .
@@ -50,6 +51,14 @@ Note do not use the red power connection from the USB to serial device ( red is 
 Now power the CHIP with a usb power adapter.  Open putty on windows machine and connect to the port number from above step ensuring
 that the speed is setup as 115200 baud.  This should open up a window and connection that will ask for username and password. The username is chip
 and the password is chip at the beginning! You might need to press enter to get the username prompt to show up!
+
+### Connect to CHIP via USB cable and windows 10 machine directly
+This is possible but it did not work on headless os 4.4 until i found this [CHIP forum message about this not working properly](https://bbs.nextthing.co/t/fix-cdc-composite-gadget-4-4-driver-issue-on-windows/7458/18). If the link does not work then
+search for
+>CDC Composite Gadget” 4.4 driver issue on Windows.  
+The long and short of it is you need a new windows 10 driver [here](https://s3-us-west-2.amazonaws.com/getchip.com/extension/drivers/windows/InstallDriver44.exe).  Get the driver install it!
+Now plug newly flashed headless os 4.4 CHIP device into a usb port on the windows 10 machine and in a moment it will show up as a com port.
+Open device manager and find the com port that is assign to the CHIP.  Open the port ensure it is set to 115200 baud, no parity, 1 stop bit, no flow control, 8 data bits. Open a putty serial session and set it to the same settings as last sentence.  Once connected enter the user name chip and the password chip.
 
 [CHIP online wifi setup documents](http://docs.getchip.com/chip.html#wifi-connection)
 
