@@ -47,9 +47,10 @@ Second get the latest debian package version.  The raspberry pi instructions cou
 get the most bleeding edge version from source and then compile it locally but this seems to not all be working on the CHIP device.
 
 ```
-sudo apt-get install libtool libltdl-dev libffi-dev autoconf m4 gforth
+sudo apt-get install libtool libtool-bin libltdl-dev libffi-dev autoconf m4 gforth
 ```
 
+*note libtool-bin is needed because there is some issue in jessy but the normal way to install was just use libtool*
 This installs the most recent gforth that is available in Debian.  If you type `gforth` now at the command line you should see something like the following:
 
 ```
@@ -83,3 +84,22 @@ Type `bye' to exit
 ```
 
 Again you can exit with `bye`.  
+
+At this moment you have a newer version of Gforth but for the bleeding edge version do the following:
+
+```
+sudo wget http://www.complang.tuwien.ac.at/forth/gforth/Snapshots/0.7.9_20161109/gforth-0.7.9_20161109.tar.xz
+sudo tar -xf gforth-0.7.9_20161109.tar.xz
+cd gforth-0.7.9_20161109
+sudo ./BUILD-FROM-SCRATCH
+```
+
+This will take some time and generate many messages of which some will look like error messages.   Just ignore them untill it is done then do the following:
+
+```
+sudo make
+sudo make install
+cd ..
+```
+
+At the command line `gforth` will bring up the version 0.7.9_20150306.  And `gforth-arm` will now bring up version 0.7.9_20161109.  These names are sim links that could be changed to work in any way you want.  This means that both version of gforth are now available so be aware what version you are using.  I have not tested this but if you later redo this setp to install even a newer version then only the original version and the newest version will work with these sim links but all three version will be on the system.  This means that you may want to simply change the sim links to point to what ever version you want to use!
