@@ -39,3 +39,47 @@ git config --global user.email useremail@place.com
 ```
 
 * Gforth stuff to use it and its tools!
+
+[My gforth install post for raspberry pi device](https://www.raspberrypi.org/forums/viewtopic.php?f=34&t=43300)
+
+There are a few basic steps.  First install the debian gforth current version and some dependency's needed for the next step.
+Second get the latest debian package version.  The raspberry pi instructions could be used loosly to compile from sources but to
+get the most bleeding edge version from source and then compile it locally but this seems to not all be working on the CHIP device.
+
+```
+sudo apt-get install libtool libltdl-dev libffi-dev autoconf m4 gforth
+```
+
+This installs the most recent gforth that is available in Debian.  If you type `gforth` now at the command line you should see something like the following:
+
+```
+Gforth 0.7.2, Copyright (C) 1995-2008 Free Software Foundation, Inc.
+Gforth comes with ABSOLUTELY NO WARRANTY; for details type `license'
+Type `bye' to exit
+```
+
+Just type `bye` to exit the gforth command line environment.  Continue to get the a newer debian package for gforth.
+
+```
+sudo wget http://www.complang.tuwien.ac.at/forth/gforth/Snapshots/0.7.9_20160306/gforth-common_0.7.9-20160306_all.deb
+sudo wget http://www.complang.tuwien.ac.at/forth/gforth/Snapshots/0.7.9_20160306/gforth-bin_0.7.9-20160306_armhf.deb
+sudo wget http://www.complang.tuwien.ac.at/forth/gforth/Snapshots/0.7.9_20160306/gforth-lib_0.7.9-20160306_armhf.deb
+sudo wget http://www.complang.tuwien.ac.at/forth/gforth/Snapshots/0.7.9_20160306/gforth_0.7.9-20160306_armhf.deb
+
+sudo dpkg -i gforth-common_0.7.9-20160306_all.deb
+sudo dpkg -i gforth-bin_0.7.9-20160306_armhf.deb
+sudo dpkg -i gforth-lib_0.7.9-20160306_armhf.deb
+sudo dpkg -i gforth_0.7.9-20160306_armhf.deb
+
+sudo apt-get install -f
+```
+
+This gets and installs the latest debian package. So now at the command line if you invoke `gforth` you should see the following:
+
+```
+Gforth 0.7.9_20160306, Copyright (C) 1995-2015 Free Software Foundation, Inc.
+Gforth comes with ABSOLUTELY NO WARRANTY; for details type `license'
+Type `bye' to exit
+```
+
+Again you can exit with `bye`.  
