@@ -1,6 +1,6 @@
 # Update Remove and Installing software
 
-At this writing the CHIP OS i am using is ** *headless os 4.4* ** .
+At this writing the CHIP OS i am using is _**headless os 4.4**_ .
 
 ### Stuff to Remove
 
