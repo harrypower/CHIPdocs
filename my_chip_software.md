@@ -107,7 +107,7 @@ At the command line `gforth` will bring up version 0.7.9_20150306.  And `gforth-
 * Apache web server install and setup with cgi turned on
 
 [CHIP Apache setup information](http://www.chip-community.org/index.php/CGI_program_on_CHIP)
-I have summarized the information here from the above link with some changes.  
+I have summarized the information here from the link with some changes.  
 
 ```
 sudo apt-get install apache2
@@ -118,7 +118,7 @@ sudo apachectl -k graceful
 
 At this moment Apache is running and the _*index.html*_ file should be changed in this directory `/var/www/html/`.
 The cgi code should be placed at `/usr/lib/cgi-bin/` and given the correct privileges.
-So basically these two directory's are the places to put stuff to be accessed remotely on the network. 
+So basically these two directory's are the places to put stuff to be accessed remotely on the network.
 
 Gforth script can be in a simple file that has or does not have an extension.  The file needs the following in its first line:
 
@@ -126,12 +126,18 @@ Gforth script can be in a simple file that has or does not have an extension.  T
 #! /usr/local/bin/gforth-arm
 ```
 
-This first line simply tells the system where the gforth engine is located in the system to use in with the script.  
-Access the pages locally as follows:
+This first line simply tells the system where the gforth engine is located in the system that is to be used with the script.  
+Once you make the gforth script and save it you need to change its permissions to be executable as follows:
+
+```
+sudo chmod +x name-of-cgi-code
+```
+
+You can test and access the files served locally by using any of the commands below.
 
 ```
 ping localhost
-wget localhost/cgi-bin/*name-of-cgi-code*
+wget localhost/cgi-bin/name-of-cgi-code
 wget localhost
 ```
 
