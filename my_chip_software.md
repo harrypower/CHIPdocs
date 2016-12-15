@@ -50,7 +50,7 @@ get the most bleeding edge version from source and then compile it locally but t
 sudo apt-get install libtool libtool-bin libltdl-dev libffi-dev autoconf m4 gforth
 ```
 
-*note libtool-bin is needed because there is some issue in jessy but the normal way to install was just use libtool*
+_*note libtool-bin is needed because there is some issue in jessy but the normal way to install was just use libtool*_
 This installs the most recent gforth that is available in Debian.  If you type `gforth` now at the command line you should see something like the following:
 
 ```
@@ -94,7 +94,7 @@ cd gforth-0.7.9_20161109
 sudo ./BUILD-FROM-SCRATCH
 ```
 
-This will take some time and generate many messages of which some will look like error messages.   Just ignore them untill it is done then do the following:
+This will take some time and generate many messages of which some will look like error messages.   Just ignore them until it is done then do the following:
 
 ```
 sudo make
@@ -102,4 +102,37 @@ sudo make install
 cd ..
 ```
 
-At the command line `gforth` will bring up the version 0.7.9_20150306.  And `gforth-arm` will now bring up version 0.7.9_20161109.  These names are sim links that could be changed to work in any way you want.  This means that both version of gforth are now available so be aware what version you are using.  I have not tested this but if you later redo this setp to install even a newer version then only the original version and the newest version will work with these sim links but all three version will be on the system.  This means that you may want to simply change the sim links to point to what ever version you want to use!
+At the command line `gforth` will bring up version 0.7.9_20150306.  And `gforth-arm` will now bring up version 0.7.9_20161109.  These names are sim links that could be changed to work in any way you want.  This means that both version of gforth are now available so be aware what version you are using.  I have not tested this but if you later redo this setup to install even a newer version then only the original version and the newest version will work with these sim links but all three version will be on the system.  This means that you may want to simply change the sim links to point to what ever version you want to use!
+
+* Apache web server install and setup with cgi turned on
+
+[CHIP Apache setup information](http://www.chip-community.org/index.php/CGI_program_on_CHIP)
+I have summarized the information here from the above link with some changes.  
+
+```
+sudo apt-get install apache2
+cd /etc/apache2/mods-enabled
+sudo ln -s ../mods-available/cgi.load
+sudo apachectl -k graceful
+```
+
+At this moment Apache is running and the _*index.html*_ file should be changed in this directory `/var/www/html/`.
+The cgi code should be placed at `/usr/lib/cgi-bin/` and given the correct privileges.
+So basically these two directory's are the places to put stuff to be accessed remotely on the network. 
+
+Gforth script can be in a simple file that has or does not have an extension.  The file needs the following in its first line:
+
+```
+#! /usr/local/bin/gforth-arm
+```
+
+This first line simply tells the system where the gforth engine is located in the system to use in with the script.  
+Access the pages locally as follows:
+
+```
+ping localhost
+wget localhost/cgi-bin/*name-of-cgi-code*
+wget localhost
+```
+
+Each of the above lines will give different information but they should all show the system working!
