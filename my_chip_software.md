@@ -142,3 +142,37 @@ wget localhost
 ```
 
 Each of the above lines will give different information but they should all show the system working!
+
+* Install and setup mail program sSMTP
+
+  * Install
+
+  ```
+  sudo apt-get install ssmtp
+  ```
+
+  * Configure
+
+  ```
+  sudo nano /etc/ssmtp/ssmtp.conf
+  ```
+
+  Add the following or edit the following lines:
+
+  ```
+  root=mygmail@gmail.com  # put my real email address here.
+  mailhub=smtp.gmail.com:587
+  rewriteDomain=gmail.com
+  hostname=localhost
+  rewriteDomain=gmail.com
+  FromLineOverride=YES
+  UseTLS=YES
+  UseSTARTTLS=YES
+  AuthUser=myusername  # put my real gmail user name less the @gmail.com
+  AuthPass=mypassword  # [put my real password generated here see note below](https://security.google.com/settings/security/apppasswords)
+  AuthMethod=LOGIN
+  ```
+
+  The password above needs to be generated and maintained in googles account login pages and not be my normal password!
+
+  
