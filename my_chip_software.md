@@ -169,10 +169,8 @@ Each of the above lines will give different information but they should all show
   UseTLS=YES
   UseSTARTTLS=YES
   AuthUser=myusername  # put my real gmail user name less the @gmail.com
-  AuthPass=mypassword  # [put my real password generated here see note below](https://security.google.com/settings/security/apppasswords)
+  AuthPass=mypassword  # put my generated application password here see note below
   AuthMethod=LOGIN
   ```
 
-  The password above needs to be generated and maintained in googles account login pages and not be my normal password!
-
-  
+  The password above needs to be generated and maintained at [googles account application password pages](https://security.google.com/settings/security/apppasswords) so it is not my normal password!
