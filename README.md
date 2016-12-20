@@ -8,4 +8,4 @@ This includes:
   * installing Apache and configuring CGI
   * installing Git and setting default username
   * installing the gcc stuff to compile other stuff
-  
+  * installing sSMTP for basic smtp mail sending to gmail
