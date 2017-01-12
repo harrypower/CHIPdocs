@@ -148,7 +148,7 @@ Each of the above lines will give different information but they should all show
   * Install
 
   ```
-  sudo apt-get install ssmtp  mailutils mpack
+  sudo apt-get install ssmtp  mailutils mpack heirloom-mailx
   ```
 
   * Configure
@@ -178,4 +178,12 @@ Each of the above lines will give different information but they should all show
     ```
     echo "A message from chip!" | mail -s "Test Mail" youremail.address@mail.com  
     ```
-    Check you email for this test message!  Note the above ssmtp installation does not need to be restarted after the setup so this test email should arrive soon!
+    Check your email for this test message!  Note the above ssmtp installation does not need to be restarted after the setup so this test email should arrive soon!
+
+  * Test the mail with an attachment
+    ```
+    sudo touch /home/chip/testmail.txt
+    sudo echo "Some stuff in a file to attach to an email for testing!" > /home/chip/testmail.txt
+    sudo echo "Sending" | mail -s "New test" -a "/home/chip/testmail.txt" youremail.address@mail.com
+    ```
+    Check your email for this email and attachment!  
