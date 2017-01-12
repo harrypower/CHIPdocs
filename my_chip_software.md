@@ -148,7 +148,7 @@ Each of the above lines will give different information but they should all show
   * Install
 
   ```
-  sudo apt-get install ssmtp
+  sudo apt-get install ssmtp  mailutils mpack
   ```
 
   * Configure
@@ -164,7 +164,6 @@ Each of the above lines will give different information but they should all show
   mailhub=smtp.gmail.com:587
   rewriteDomain=gmail.com
   hostname=localhost
-  rewriteDomain=gmail.com
   FromLineOverride=YES
   UseTLS=YES
   UseSTARTTLS=YES
@@ -174,3 +173,9 @@ Each of the above lines will give different information but they should all show
   ```
 
   The password above needs to be generated and maintained at [googles account application password pages](https://security.google.com/settings/security/apppasswords) so it is not my normal password!
+
+  * Test the mail
+    ```
+    echo "A message from chip!" | mail -s "Test Mail" youremail.address@mail.com  
+    ```
+    Check you email for this test message!  Note the above ssmtp installation does not need to be restarted after the setup so this test email should arrive soon!
