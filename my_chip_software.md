@@ -187,3 +187,8 @@ Each of the above lines will give different information but they should all show
     sudo echo "Sending" | mail -s "New test" -a "/home/chip/testmail.txt" youremail.address@mail.com
     ```
     Check your email for this email and attachment!  
+
+* Install stuff for i2c use
+  The following command should be run to install the i2c tools.  Note however this may already be included in the os 4.4 headless debian software!
+
+  `sudo apt-get install i2c-tools`
